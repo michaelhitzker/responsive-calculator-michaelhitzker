@@ -1,20 +1,144 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div fxLayout="column">
+  <p class="result">{{ text }}</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+  <div fxLayout="row" class="input-container">
+    <div fxLayout="column" fxFlex="50%" fxFlex.gt-xs="33">
+      <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex="25">
+        <button class="btn-input number" (click)="typeCharacter(7)">7</button>
+        <button class="btn-input number" (click)="typeCharacter(8)">8</button>
+        <button class="btn-input number" (click)="typeCharacter(9)">9</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex="25">
+        <button class="btn-input number" (click)="typeCharacter(4)" fxflex>
+          4
+        </button>
+        <button class="btn-input number" (click)="typeCharacter(5)">5</button>
+        <button class="btn-input number" (click)="typeCharacter(6)">6</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex="25">
+        <button class="btn-input number" (click)="typeCharacter(1)">1</button>
+        <button class="btn-input number" (click)="typeCharacter(2)">2</button>
+        <button class="btn-input number" (click)="typeCharacter(3)">3</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex>
+        <button class="btn-input number" (click)="typeCharacter(0)">0</button>
+        <button class="btn-input number">,</button>
+        <button
+          class="btn-input number"
+          disabled
+          fxShow.gt-xs="true"
+          fxShow="false"
+        ></button>
+        <button
+          class="btn-input number"
+          (click)="calculate()"
+          fxShow.gt-xs="false"
+          fxShow="true"
+        >
+          =
+        </button>
+      </div>
+    </div>
+    <div fxLayout="column" fxFlex="50%" fxFlex.gt-xs="33">
+      <div
+        fxLayout.gt-xs="row"
+        fxLayout="column-reverse"
+        fxLayoutAlign="space-evenly stretch"
+        fxFlex.gt-xs="25"
+        fxFlex="40"
+      >
+        <button class="btn-input operation" (click)="typeCharacter('÷')">
+          ÷
+        </button>
+        <button class="btn-input operation" (click)="remove()">⌫</button>
+      </div>
+      <div
+        fxLayout.gt-xs="row"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly stretch"
+        fxFlex.gt-xs="25"
+        fxFlex="20"
+      >
+        <button class="btn-input operation" (click)="typeCharacter('×')">
+          ×
+        </button>
+        <button
+          class="btn-input operation"
+          disabled
+          fxShow.gt-xs="true"
+          fxShow="false"
+        ></button>
+      </div>
+      <div
+        fxLayout.gt-xs="row"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly stretch"
+        fxFlex.gt-xs="25"
+        fxFlex="20"
+      >
+        <button class="btn-input operation" (click)="typeCharacter('-')">
+          -
+        </button>
+        <button
+          class="btn-input operation"
+          disabled
+          fxShow.gt-xs="true"
+          fxShow="false"
+        ></button>
+      </div>
+      <div
+        fxLayout.gt-xs="row"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly stretch"
+        fxFlex
+      >
+        <button class="btn-input operation" (click)="typeCharacter('+')">
+          +
+        </button>
+        <button
+          class="btn-input operation"
+          (click)="calculate()"
+          fxShow.gt-xs="true"
+          fxShow="false"
+        >
+          =
+        </button>
+      </div>
+    </div>
+    <div
+      fxLayout="column"
+      fxFlex.gt-xs="34%"
+      fxFlex.gt-xs="0%"
+      class="science-container"
+      fxShow.gt-xs="true"
+      fxShow="false"
+    >
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="20">
+        <button class="btn-input number science">INV</button>
+        <button class="btn-input number science">GRAD</button>
+        <button class="btn-input number science">%</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="20">
+        <button class="btn-input number science">sin</button>
+        <button class="btn-input number science">cos</button>
+        <button class="btn-input number science">tan</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="20">
+        <button class="btn-input number science">ln</button>
+        <button class="btn-input number science">log</button>
+        <button class="btn-input number science">√</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex="20">
+        <button class="btn-input number science">&Pi;</button>
+        <button class="btn-input number science">e</button>
+        <button class="btn-input number science">^</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch" fxFlex>
+        <button class="btn-input number science">(</button>
+        <button class="btn-input number science">)</button>
+        <button class="btn-input number science">!</button>
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

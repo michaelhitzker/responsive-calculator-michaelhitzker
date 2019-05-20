@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.btn-input {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  font-weight: 400;
+  font-size: 2em;
+  width: 100%;
+}
+
+.input-container {
+  background-color: #e0e0e0;
+}
+
+.result {
+  text-align: right;
+  font-size: 3em;
+  margin: 20px;
+}
+
+.science,
+.science-container {
+  color: #fafafa;
+  background-color: #1e88e5;
+}
+
+.operation {
+  color: #1e88e5;
+}
+
+.error {
+  color: #f44336;
+  font-size: 0.85em;
+  text-align: right;
+}
