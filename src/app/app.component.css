@@ -12,8 +12,12 @@
   width: 100%;
 }
 
+.science-drawer {
+  width: 50px;
+}
+
 .input-container {
-  background-color: #e0e0e0;
+  background-color: #fafafa;
 }
 
 .result {
@@ -23,7 +27,8 @@
 }
 
 .science,
-.science-container {
+.science-container,
+.science-drawer {
   color: #fafafa;
   background-color: #1e88e5;
 }

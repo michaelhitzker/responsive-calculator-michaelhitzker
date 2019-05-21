@@ -1,4 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<head>
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+</head>
 <div fxLayout="column">
   <p class="result">{{ text }}</p>
   <p class="error" *ngIf="error">{{ error }}</p>
@@ -30,12 +38,7 @@
           fxShow.gt-xs="true"
           fxShow="false"
         ></button>
-        <button
-          class="btn-input number"
-          (click)="calculate()"
-          fxShow.gt-xs="false"
-          fxShow="true"
-        >
+        <button class="btn-input number" fxShow.gt-xs="false" fxShow="true">
           =
         </button>
       </div>
@@ -96,15 +99,19 @@
         <button class="btn-input operation" (click)="typeCharacter('+')">
           +
         </button>
-        <button
-          class="btn-input operation"
-          (click)="calculate()"
-          fxShow.gt-xs="true"
-          fxShow="false"
-        >
+        <button class="btn-input operation" fxShow.gt-xs="true" fxShow="false">
           =
         </button>
       </div>
+    </div>
+    <div
+      fxLayout="column"
+      fxShow.gt-xs="false"
+      fxShow="true"
+      class="science-drawer"
+      fxLayoutAlign="center center"
+    >
+      <i class="fas fa-angle-left"></i>
     </div>
     <div
       fxLayout="column"
